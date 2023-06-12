@@ -54,10 +54,8 @@ export default function Simple() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
-
           <HStack spacing={8} alignItems={'center'}>
-            <img src={LogoNav} alt="" width={40} />
-
+            <img src={LogoNav} alignItems={'center'} alt="" width={40} />
             <HStack
               as={'nav'}
               spacing={4}
@@ -68,12 +66,10 @@ export default function Simple() {
               ))}
             </HStack>
           </HStack>
-          <Flex alignItems={'center'}></Flex>
           <Button onClick={toggleColorMode}>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Flex>
-
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
