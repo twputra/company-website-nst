@@ -15,9 +15,11 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import LogoNav from '../assets/Icon Logo NST.png';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Image, keyframes, usePrefersReducedMotion } from '@chakra-ui/react';
 
 const Links = ['Home', 'Projects', 'Team'];
@@ -38,6 +40,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 );
 
 export default function Simple() {
+  const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -51,8 +54,9 @@ export default function Simple() {
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
           />
+
           <HStack spacing={8} alignItems={'center'}>
-          <img src={LogoNav} alt="" width={40} />
+            <img src={LogoNav} alt="" width={40} />
 
             <HStack
               as={'nav'}
@@ -65,6 +69,9 @@ export default function Simple() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}></Flex>
+          <Button onClick={toggleColorMode}>
+            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          </Button>
         </Flex>
 
         {isOpen ? (
