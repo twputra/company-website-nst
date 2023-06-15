@@ -18,11 +18,7 @@ import { BiMailSend } from 'react-icons/bi';
 import LogoFooter from '../assets/Logo NST.png';
 
 const Logo = (props: any) => {
-  return (
-    
-      <img src={LogoFooter}  />
-  
-  );
+  return <img src={LogoFooter} />;
 };
 
 const SocialButton = ({
@@ -30,10 +26,14 @@ const SocialButton = ({
   label,
   href,
 }: {
-  children: ReactNode,
-  label: string,
-  href: string,
+  children: ReactNode;
+  label: string;
+  href: string;
 }) => {
+  const handleClick = () => {
+    window.open(href, '_blank');
+  };
+
   return (
     <chakra.button
       bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
@@ -42,7 +42,7 @@ const SocialButton = ({
       h={8}
       cursor={'pointer'}
       as={'a'}
-      href={href}
+      onClick={handleClick}
       display={'inline-flex'}
       alignItems={'center'}
       justifyContent={'center'}
@@ -89,21 +89,19 @@ export default function LargeWithNewsletter() {
               </SocialButton>
               <SocialButton
                 label={'YouTube'}
-                href={
-                  'https://www.youtube.com/channel/UCe_aKmOu7mtTLYufmAwZUmw'
-                }
+                href="https://www.youtube.com/channel/UCe_aKmOu7mtTLYufmAwZUmw"
               >
                 <FaYoutube />
               </SocialButton>
               <SocialButton
                 label={'Instagram'}
-                href={'https://www.instagram.com/pidihub.id/'}
+                href="https://www.instagram.com/pidihub.id/"
               >
                 <FaInstagram />
               </SocialButton>
               <SocialButton
                 label={'Whatsapp'}
-                href={'https://wa.me/6281288322399'}
+                href="https://wa.me/6281288322399"
               >
                 <FaWhatsapp />
               </SocialButton>

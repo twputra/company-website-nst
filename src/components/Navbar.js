@@ -2,16 +2,10 @@ import { ReactNode } from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -20,7 +14,6 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import LogoNav from '../assets/Icon Logo NST.png';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import { Image, keyframes, usePrefersReducedMotion } from '@chakra-ui/react';
 
 const Links = ['Home', 'Projects', 'Team'];
 
@@ -66,7 +59,7 @@ export default function Simple() {
               ))}
             </HStack>
           </HStack>
-          <Button onClick={toggleColorMode}>
+          <Button style={{ display: "none"}} onClick={toggleColorMode}>
             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Flex>
